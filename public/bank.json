@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Dutch-Bangla Bank",
+        "image": "https://i.ibb.co.com/S4RBPMDS/dutch-bangla-bank-limited-logo-png-seeklogo-341300.png",
+        "description": "Dutch-Bangla Bank Limited (DBBL) is a leading bank known for its extensive mobile banking services."
+    },
+    {
+        "id": 2,
+        "name": "BRAC Bank",
+        "image": "https://i.ibb.co.com/vxdp71Xt/brac-bank-logo-png-seeklogo-260716.png",
+        "description": "BRAC Bank offers personal, SME, and corporate banking with a strong digital presence through bKash and more."
+    },
+    {
+        "id": 3,
+        "name": "City Bank",
+        "image": "https://i.ibb.co.com/VPWydZn/city-bank-logo-png-seeklogo-263036.png",
+        "description": "City Bank is known for its digital platform 'CityTouch' and a wide range of financial products."
+    },
+    {
+        "id": 4,
+        "name": "Islami Bank",
+        "image": "https://i.ibb.co.com/tpVMZk6Q/islami-bank-bangladesh-plc-logo-png-seeklogo-550096.png",
+        "description": "Islami Bank Bangladesh Limited operates under Shariah principles and serves millions across the country."
+    },
+    {
+        "id": 5,
+        "name": "AB Bank",
+        "image": "https://i.ibb.co.com/1tN9H7PR/ab-bank-limited-logo-png-seeklogo-242525.png",
+        "description": "AB Bank was the first private bank in Bangladesh, offering diverse services from retail to corporate banking."
+    },
+    {
+        "id": 6,
+        "name": "Sonali Bank",
+        "image": "https://i.ibb.co.com/jPfr4gSq/sonali-bank-limited-logo-png-seeklogo-318183.png",
+        "description": "Sonali Bank is a state-owned bank with a vast branch network and government transaction services."
+    }
+]

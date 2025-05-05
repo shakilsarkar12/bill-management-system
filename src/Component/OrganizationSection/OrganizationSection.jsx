@@ -16,8 +16,8 @@ const OrganizationSection = () => {
         Supported Organizations
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-        {orgs.map((org) => (
-          <OrganizationCard key={org.id} org={org} />
+        {orgs.map((datas) => (
+          <OrganizationCard key={datas.id} datas={datas} />
         ))}
       </div>
     </div>
