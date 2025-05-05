@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "DESCO",
+        "image": "https://i.ibb.co.com/kVy9dmVK/desco-logo-png-seeklogo-396105.png",
+        "description": "Dhaka Electric Supply Company (DESCO) distributes electricity in parts of Dhaka city."
+    },
+    {
+        "id": 2,
+        "name": "NESCO",
+        "image": "https://i.ibb.co.com/whD3d58x/nesco-logo-png-seeklogo-382775.png",
+        "description": "Northern Electricity Supply Company (NESCO) provides power distribution in Rajshahi and Rangpur divisions."
+    },
+    {
+        "id": 3,
+        "name": "WASA",
+        "image": "https://i.ibb.co.com/mCKp795s/chattogram-wasa-logo-png-seeklogo-362536.png",
+        "description": "WASA is responsible for supplying water and managing sewage services in urban areas."
+    },
+    {
+        "id": 4,
+        "name": "TITAS",
+        "image": "https://i.ibb.co.com/0R5cSgJ9/image.png",
+        "description": "Titas Gas is the largest natural gas distributor in Bangladesh, serving residential and commercial customers."
+    },
+    {
+        "id": 5,
+        "name": "PGCB",
+        "image": "https://i.ibb.co.com/TBVKb39S/pgcb-logo-png-seeklogo-484390.png",
+        "description": "Power Grid Company of Bangladesh (PGCB) operates and maintains the national grid infrastructure."
+    },
+    {
+        "id": 6,
+        "name": "DPDC",
+        "image": "https://i.ibb.co.com/fzH1jwPd/dpdc-logo-png-seeklogo-427054.png",
+        "description": "Dhaka Power Distribution Company (DPDC) is responsible for electricity distribution in central Dhaka and adjoining areas."
+    }
+]
