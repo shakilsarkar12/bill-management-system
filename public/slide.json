@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Pay Your Bills Instantly",
+        "description": "Pay all your utility bills from one place with our secure and reliable platform.",
+        "image": "/images/money.gif"
+    },
+    {
+        "id": 2,
+        "title": "24/7 Customer Support",
+        "description": "Our dedicated team is here to help you anytime, anywhere.",
+        "image": "/images/support.gif"
+    },
+    {
+        "id": 3,
+        "title": "Trusted by Millions",
+        "description": "Join millions of users making their bill payments easy and hassle-free.",
+        "image": "/images/trusted.svg"
+    }
+]

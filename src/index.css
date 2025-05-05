@@ -1,8 +1,20 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+.navlink.active {
+  color: #00bafe;
+  border-bottom: 1px solid;
+}
 
-.navlink.active{
-    color: #00BAFE;
-    border-bottom: 1px solid ;
+html {
+  scroll-behavior: smooth;
+}
+.swiper-pagination {
+  margin-bottom: 16px;
+}
+.swiper-button-prev{
+margin-left: 12px;
+}
+.swiper-button-next {
+    margin-right: 12px;
 }
