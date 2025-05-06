@@ -41,10 +41,10 @@ const Navbar = () => {
                 {links}
               </ul>
             </div>
-            <a className="flex items-center text-xl md:text-2xl text-accent font-semibold">
-              <img className="w-10 md:w-16" src={logo} alt="" />
+            <div className="flex items-center text-2xl md:text-3xl text-accent font-semibold">
+              <img className="icon w-10 md:w-16" src={logo} alt="" />
               Pay <span className="text-info">Bill</span>
-            </a>
+            </div>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 space-x-10 text-lg font-semibold">

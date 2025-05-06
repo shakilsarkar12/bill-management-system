@@ -41,3 +41,7 @@ html {
   color: #00bafe;
   margin-right: 12px;
 }
+
+.icon {
+  filter: brightness(100%) saturate(100%) invert(39%) sepia(100%) saturate(1197%) hue-rotate(190deg) brightness(100%) contrast(100%);
+}
