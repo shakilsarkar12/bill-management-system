@@ -1,19 +1,21 @@
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import React from 'react';
+import React, { useContext } from 'react';
 import { toast } from 'react-toastify';
-import { auth } from '../../Firebase/firebase.init';
 import { useNavigate } from 'react-router';
 import { FcGoogle } from 'react-icons/fc';
+import { AuthContext } from '../../Context/AuthContext/AuthContext';
 
-const ContinueGoogle = ({color}) => {
+const ContinueGoogle = ({ color }) => {
+  const { setUser, googleSignin } = useContext(AuthContext);
+
       const navigate = useNavigate();
-    const googleProvider = new GoogleAuthProvider();
+
     const handleGoogleLogin = () => {
           console.log("Google")
-        signInWithPopup(auth, googleProvider)
+        googleSignin()
           .then((result) => {
             toast.success("Logged in with Google!");
             console.log(result.user);
+            setUser(result.user)
             navigate("/");
           })
           .catch((error) => {

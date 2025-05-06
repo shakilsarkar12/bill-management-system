@@ -37,12 +37,11 @@ const SignUp = () => {
           displayName: name,
           photoURL: photoURL,
           userBalence: balence
-        }).then((result) => {
-          toast.success("Registration successful!");
-          navigate("/");
-          setUser(result.user);
-          console.log(result.user);
-        });
+        })
+        toast.success("Registration successful!");
+        navigate("/");
+        console.log(result.user);
+        setUser(result.user);
       })
       .catch((error) => {
         console.log(error.message);
