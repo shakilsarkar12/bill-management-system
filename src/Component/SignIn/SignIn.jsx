@@ -1,29 +1,29 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import { auth } from "../../Firebase/firebase.init";
 import ContinueGoogle from "../ContinueGoogle/ContinueGoogle";
+import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
 const SignIn = () => {
-  const [Error, setError] = useState("");
   const navigate = useNavigate();
+  const { signInUser, setUser, error, setError } = useContext(AuthContext);
 
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log("hello login");
-
-    signInWithEmailAndPassword(auth, email, password)
+    setError("");
+    signInUser(email, password)
       .then((result) => {
         toast.success("Logged uccessfull !!");
         console.log(result.user);
+        setUser(result.user);
         navigate("/");
       })
       .catch((error) => {
         console.log(error);
+        setError(error.message);
       });
   };
 
@@ -52,7 +52,9 @@ const SignIn = () => {
           <div className="text-right text-sm text-blue-600 cursor-pointer">
             Forget Password?
           </div>
-
+          <p className="text-red-500 text-sm">
+            {error && "Invalid Email or Password"}
+          </p>
           <button className="btn btn-accent text-white w-full ">Sign In</button>
           <div className="divider">OR</div>
           <ContinueGoogle color="accent" />

@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../../Firebase/firebase.init";
+import { updateProfile } from "firebase/auth";
 import ContinueGoogle from "../ContinueGoogle/ContinueGoogle";
+import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
 const SignUp = () => {
   const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
+  const { createUser, setUser, error, setError } = useContext(AuthContext);
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -29,19 +30,21 @@ const SignUp = () => {
     } else {
       setPasswordError("");
     }
-
-    createUserWithEmailAndPassword(auth, email, password)
+    createUser(email, password)
       .then((result) => {
         updateProfile(result.user, {
           displayName: name,
           photoURL: photoURL,
+        }).then((result) => {
+          toast.success("Registration successful!");
+          navigate("/");
+          setUser(result.user);
+          console.log(result.user);
         });
-        toast.success("Registration successful!");
-        navigate("/");
-        console.log(result.user);
       })
       .catch((error) => {
         console.log(error.message);
+        setError(error.message);
       });
   };
 
@@ -81,13 +84,16 @@ const SignUp = () => {
             required
           />
 
-          <p className="text-red-500 cursor-pointer">{passwordError}</p>
+          {passwordError && (
+            <p className="text-red-500 text-sm">{passwordError}</p>
+          )}
+          {error && <p className="text-red-500 text-sm">{error}</p>}
 
           <button className="btn btn-info text-white w-full ">Sign Up</button>
           <div className="divider">OR</div>
           <ContinueGoogle color="info" />
           <p className="text-center mt-4 text-sm sm:text-base">
-            Already have an account?
+            Already have an account?{" "}
             <Link to="/auth/signin" className="text-blue-600 hover:underline">
               Signin
             </Link>
