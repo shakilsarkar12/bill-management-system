@@ -1,14 +1,9 @@
 import React, { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import {
-  createUserWithEmailAndPassword,
-  updateProfile,
-  GoogleAuthProvider,
-  signInWithPopup,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../Firebase/firebase.init";
+import ContinueGoogle from "../ContinueGoogle/ContinueGoogle";
 
 const SignUp = () => {
   const [passwordError, setPasswordError] = useState("");
@@ -50,18 +45,6 @@ const SignUp = () => {
       });
   };
 
-  const googleProvider = new GoogleAuthProvider();
-  const handleGoogleLogin = () => {
-    signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        toast.success("Logged in with Google!");
-        console.log(result.user);
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
   return (
     <div className="px-4">
       <div className="max-w-sm mx-auto mt-10 sm:mt-16 bg-gray-100 p-4 sm:p-6 py-8 rounded-lg">
@@ -71,28 +54,28 @@ const SignUp = () => {
         <form onSubmit={handleSignUp} className="space-y-5">
           <input
             name="name"
-            className="border border-accent focus:outline-accent w-full px-4 py-2 rounded-sm"
+            className="border border-info focus:outline-info w-full px-4 py-2 rounded-sm"
             type="text"
             placeholder="name"
             required
           />
           <input
             name="photoURL"
-            className="border border-accent focus:outline-accent w-full px-4 py-2 rounded-sm"
+            className="border border-info focus:outline-info w-full px-4 py-2 rounded-sm"
             type="url"
             placeholder="PhotoURL"
             required
           />
           <input
             name="email"
-            className="border border-accent focus:outline-accent w-full px-4 py-2 rounded-sm"
+            className="border border-info focus:outline-info w-full px-4 py-2 rounded-sm"
             type="email"
             placeholder="Email"
             required
           />
           <input
             name="password"
-            className="border border-accent focus:outline-accent w-full px-4 py-2 rounded-sm"
+            className="border border-info focus:outline-info w-full px-4 py-2 rounded-sm"
             type="password"
             placeholder="Password"
             required
@@ -100,16 +83,9 @@ const SignUp = () => {
 
           <p className="text-red-500 cursor-pointer">{passwordError}</p>
 
-          <button className="btn btn-accent text-white w-full ">Sign Up</button>
+          <button className="btn btn-info text-white w-full ">Sign Up</button>
           <div className="divider">OR</div>
-          <button
-            onClick={handleGoogleLogin}
-            className="btn btn-outline hover:btn-accent text-gray-500 hover:text-gray-700 w-full flex items-center justify-center gap-2"
-          >
-            <FcGoogle size={20} />
-            Continue with Google
-          </button>
-
+          <ContinueGoogle color="info" />
           <p className="text-center mt-4 text-sm sm:text-base">
             Already have an account?
             <Link to="/auth/signin" className="text-blue-600 hover:underline">
