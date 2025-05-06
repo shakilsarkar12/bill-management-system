@@ -4,20 +4,21 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import { auth } from "../../Firebase/firebase.init";
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [error, setError] = useState("");
-
+    const [error, setError] = useState("");
+    const [balence, setBalence] = useState(10000)
   const signInUser = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
-    };
-    
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (createUser) {
@@ -29,16 +30,21 @@ const AuthProvider = ({ children }) => {
       return unsubscribe();
     });
   }, []);
-    
 
+  const signOutUser = () => {
+    return signOut(auth);
+    };
+    
   const userInfo = {
     user,
-    error,
+      error,
+    balence,
     setError,
-    setUser,
+      setUser,
+    setBalence,
     createUser,
     signInUser,
-    img: "https://i.ibb.co.com/r2hSG9ZX/about.jpg",
+    signOutUser,
   };
 
   return <AuthContext value={userInfo}>{children}</AuthContext>;

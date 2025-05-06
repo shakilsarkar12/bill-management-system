@@ -17,6 +17,7 @@ const SignUp = () => {
     const email = form.email.value;
     const photoURL = form.photoURL.value;
     const password = form.password.value;
+    const balence = 10000;
 
     if (!/[A-Z]/.test(password)) {
       setPasswordError("Password must have at least one Uppercase letter.");
@@ -35,6 +36,7 @@ const SignUp = () => {
         updateProfile(result.user, {
           displayName: name,
           photoURL: photoURL,
+          userBalence: balence
         }).then((result) => {
           toast.success("Registration successful!");
           navigate("/");
