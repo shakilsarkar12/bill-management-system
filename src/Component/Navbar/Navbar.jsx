@@ -52,10 +52,10 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="navbar-end  sm:space-x-4 md:space-x-6">
-            <Link to="/auth/signin" className="btn btn-sm md:btn-md btn-accent text-lg">
+            <Link to="/auth/signin" className="btn btn-sm md:btn-md btn-accent text-base md:text-lg  text-white">
               Sign In
             </Link>
-            <Link to="/auth/signup" className="btn btn-sm md:btn-md btn-info text-lg hidden sm:inline sm:pt-0.5 md:pt-1">
+            <Link to="/auth/signup" className="btn btn-sm md:btn-md btn-info text-base md:text-lg text-white hidden sm:flex">
               Sign Up
             </Link>
           </div>

@@ -50,7 +50,7 @@ const TestimonialSection = () => {
                   {user.name}
                 </h3>
                 <p className="text-sm text-gray-500 mb-3">{user.position}</p>
-                <p className="text-base text-[#111111]">"{user.comment}"</p>
+                <p className="text-base text-gray-700">"{user.comment}"</p>
               </div>
             </div>
           ))}
