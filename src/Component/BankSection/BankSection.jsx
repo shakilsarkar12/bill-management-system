@@ -11,17 +11,17 @@ const BankSection = () => {
       }, []);
       
       return (
-          <div className="w-11/12 mx-auto py-10">
-      <h2 className="text-3xl font-bold mb-6 text-gray-800">
-         Partner Banks
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-        {banks.map((datas) => (
-          <OrganizationCard key={datas.id} datas={datas} />
-        ))}
-      </div>
-    </div>
-    );
+        <div className="px-4 md:px-12 lg:px-0 lg:w-11/12 mx-auto py-10">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-10 text-gray-800">
+            Partner Banks
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6  gap-6">
+            {banks.map((datas) => (
+              <OrganizationCard key={datas.id} datas={datas} />
+            ))}
+          </div>
+        </div>
+      );
 };
 
 export default BankSection;
