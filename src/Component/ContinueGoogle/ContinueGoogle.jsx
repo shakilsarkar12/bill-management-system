@@ -13,7 +13,7 @@ const ContinueGoogle = ({ color }) => {
           console.log("Google")
         googleSignin()
           .then((result) => {
-            toast.success("Logged in with Google!");
+            toast.success("Logged in with Google !");
             console.log(result.user);
             setUser(result.user)
             navigate("/");

@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "DESCO",
+        "icon": "https://i.ibb.co.com/kVy9dmVK/desco-logo-png-seeklogo-396105.png",
+        "due-date": "2025-05-10T06:57:58.110Z",
+        "amount": 1200,
+        "bill_type": "Electricity"
+    },
+    {
+        "id": 2,
+        "name": "NESCO",
+        "icon": "https://i.ibb.co.com/whD3d58x/nesco-logo-png-seeklogo-382775.png",
+        "due-date": "2025-05-12T06:57:58.110Z",
+        "amount": 950,
+        "bill_type": "Electricity"
+    },
+    {
+        "id": 3,
+        "name": "WASA",
+        "icon": "https://i.ibb.co.com/mCKp795s/chattogram-wasa-logo-png-seeklogo-362536.png",
+        "due-date": "2025-05-15T06:57:58.110Z",
+        "amount": 800,
+        "bill_type": "Water"
+    },
+    {
+        "id": 4,
+        "name": "TITAS",
+        "icon": "https://i.ibb.co.com/0R5cSgJ9/image.png",
+        "due-date": "2025-05-18T06:57:58.110Z",
+        "amount": 1100,
+        "bill_type": "Gas"
+    },
+    {
+        "id": 5,
+        "name": "BTCL",
+        "icon": "https://i.ibb.co.com/HDVpNqRX/bangladesh-telecommunications-company-limited-logo-png-seeklogo-492053.png",
+        "due-date": "2025-05-25T06:57:58.110Z",
+        "amount": 750,
+        "bill_type": "Telephone"
+    },
+    {
+        "id": 6,
+        "name": "DPDC",
+        "icon": "https://i.ibb.co.com/fzH1jwPd/dpdc-logo-png-seeklogo-427054.png",
+        "due-date": "2025-05-22T06:57:58.110Z",
+        "amount": 1000,
+        "bill_type": "Electricity"
+    }
+]
