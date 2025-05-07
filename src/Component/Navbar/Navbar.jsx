@@ -10,7 +10,7 @@ const Navbar = () => {
       <NavLink className="navlink hover:text-info duration-300" to="/">
         Home
       </NavLink>
-      <NavLink className="navlink hover:text-info duration-300" to="/bill">
+      <NavLink className="navlink hover:text-info duration-300" to="/bills">
         Bill
       </NavLink>
       <NavLink className="navlink hover:text-info duration-300" to="/profile">
