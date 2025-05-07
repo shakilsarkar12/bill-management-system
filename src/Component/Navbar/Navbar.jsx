@@ -1,4 +1,4 @@
-import React, { use, useContext } from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import logo from "../../assets/logo.png";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
@@ -28,12 +28,12 @@ const Navbar = () => {
         setUser(null);
       })
       .catch((error) => {
-        console.log(error);
+        toast.warn(error);
       });
   };
 
   return (
-    <div className="bg-gray-100 px-2 sm:px-5 md:px-12 lg:px-0">
+    <div className="bg-gray-100/90 backdrop-blur-md  px-2 sm:px-5 md:px-12 lg:px-0 w-screen fixed top-0 left-0 z-50">
       <div className="navbar  lg:w-11/12 lg:mx-auto">
         <div className="navbar-start">
           <div className="dropdown">

@@ -1,54 +1,16 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../../Context/AuthContext/AuthContext";
-import { updateProfile } from "firebase/auth";
+import React from "react";
+import ProfileSidebar from "../../Component/ProfileSidebar/ProfileSidebar";
+import { Navigate, Outlet } from "react-router";
 
 const MyProfile = () => {
-  const { user } = useContext(AuthContext);
-  const [name, setName] = useState(user?.displayName || "");
-  const [photo, setPhoto] = useState(user?.photoURL || "");
-
-  const handleUpdate = async () => {
-    try {
-      await updateProfile(user, {
-        displayName: name,
-        photoURL: photo,
-      });
-      alert("Profile updated successfully!");
-    } catch (error) {
-      alert("Failed to update: " + error.message);
-    }
-  };
-
   return (
-    <div className="max-w-md mx-auto p-6 bg-white shadow mt-10 rounded">
-      <img
-        className="w-24 h-24 rounded-full mx-auto"
-        src={photo}
-        alt="profile"
-      />
-      <h2 className="text-xl font-semibold text-center mt-4">{user?.email}</h2>
-
-      <div className="mt-6 space-y-4">
-        <input
-          type="text"
-          className="w-full border px-4 py-2 rounded"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          className="w-full border px-4 py-2 rounded"
-          placeholder="Photo URL"
-          value={photo}
-          onChange={(e) => setPhoto(e.target.value)}
-        />
-        <button
-          onClick={handleUpdate}
-          className="bg-blue-600 text-white px-4 py-2 rounded w-full"
-        >
-          Update Profile
-        </button>
+    <div className="flex">
+      <Navigate to="/profile/dashboard" />
+      <div className="w-fit lg:w-96 bg-gray-200 sm:bg-gray-50 fixed top-16 -translate-x-12 opacity-0 hover:opacity-100 hover:translate-x-0 transition duration-500 sm:relative sm:top-0 sm:translate-x-0 sm:opacity-100 ">
+        <ProfileSidebar />
+      </div>
+      <div className="w-full">
+        <Outlet />
       </div>
     </div>
   );

@@ -40,11 +40,9 @@ const SignUp = () => {
         })
         toast.success("Registration successful!");
         navigate("/");
-        console.log(result.user);
         setUser(result.user);
       })
       .catch((error) => {
-        console.log(error.message);
         setError(error.message);
       });
   };

@@ -26,6 +26,10 @@
   color: #00bafe;
   border-bottom: 1px solid;
 }
+.profile.active{
+    color: white;
+    background: #00D3BB;
+}
 
 html {
   scroll-behavior: smooth;

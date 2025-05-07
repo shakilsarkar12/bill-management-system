@@ -17,12 +17,10 @@ const SignIn = () => {
     signInUser(email, password)
       .then((result) => {
         toast.success("Logged uccessfull !!");
-        console.log(result.user);
         setUser(result.user);
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
         setError(error.message);
       });
   };

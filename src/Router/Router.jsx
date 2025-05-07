@@ -8,6 +8,8 @@ import SignIn from "../Component/SignIn/SignIn";
 import SignUp from "../Component/SignUp/SignUp";
 import BillDetails from "../Pages/BillDetails/BillDetails";
 import Categories from "../Component/Categories/Categories";
+import Dashboard from "../Component/Dashboard/Dashboard";
+import MyProfile from "../Component/MyProfile/MyProfile";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +42,32 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         Component: Profile,
+        children: [
+          {
+            path: "/profile/dashboard",
+            Component: Dashboard,
+          },
+          {
+            path: "/profile/my-profile",
+            Component: MyProfile,
+          },
+          {
+            path: "/profile/payment-history",
+            element: <div>pyament history</div>,
+          },
+          {
+            path: "/profile/notifications",
+            element: <div>notifications</div>,
+          },
+          {
+            path: "/profile/settings",
+            element: <div>setting</div>,
+          },
+          {
+            path: "/profile/help",
+            element: <div>help</div>,
+          },
+        ],
       },
       {
         path: "/auth",
