@@ -3,7 +3,7 @@ import { BiHelpCircle, BiHome } from "react-icons/bi";
 import { FaClipboardList, FaUser } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
 import { IoMdNotifications } from "react-icons/io";
-import { NavLink } from "react-router"; 
+import { NavLink } from "react-router";
 
 const ProfileSidebar = () => {
   return (

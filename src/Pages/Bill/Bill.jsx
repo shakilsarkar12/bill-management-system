@@ -6,12 +6,12 @@ import { Navigate } from "react-router";
 const Bill = () => {
   return (
     <div className="mt-12">
-      <Navigate to="/bills/0"/>
+      <Navigate to="/bills/0" />
       <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-10 mt-28 text-gray-800">
         Pay Your Bills
       </h2>
 
-      <CategoriesBtn/>
+      <CategoriesBtn />
       <Outlet />
     </div>
   );

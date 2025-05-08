@@ -14,15 +14,11 @@ const AppDownload = () => {
         </p>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-          <button
-            className="flex items-center gap-3 btn btn-accent text-white btn-xl"
-          >
+          <button className="flex items-center gap-3 btn btn-accent text-white btn-xl">
             <FaGooglePlay className="text-xl" />
             <span>Google Play</span>
           </button>
-          <button
-            className="flex items-center gap-3 btn btn-info text-white btn-xl "
-          >
+          <button className="flex items-center gap-3 btn btn-info text-white btn-xl ">
             <FaApple className="text-xl" />
             <span>App Store</span>
           </button>

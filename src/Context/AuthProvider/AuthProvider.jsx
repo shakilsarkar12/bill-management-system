@@ -12,26 +12,31 @@ import { auth } from "../../Firebase/firebase.init";
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [balence, setBalence] = useState(10000);
   const googleProvider = new GoogleAuthProvider();
-  
-    const signInUser = (email, password) => {
+
+  const signInUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
-    };
-    
+  };
+
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
-    };
-    
-    const googleSignin = () => {
-        return signInWithPopup(auth, googleProvider);
-    }
-    
+  };
+
+  const googleSignin = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (createUser) {
-        setUser(currentUser);
+        setTimeout(() => {
+          setUser(currentUser);
+          setLoading(false);
+        }, 500);
         console.log(currentUser);
       } else {
         setUser(null);
@@ -40,6 +45,8 @@ const AuthProvider = ({ children }) => {
     });
   }, []);
 
+  console.log(loading);
+
   const signOutUser = () => {
     return signOut(auth);
   };
@@ -47,10 +54,10 @@ const AuthProvider = ({ children }) => {
   const userInfo = {
     user,
     error,
-    balence,
+    loading,
+    setLoading,
     setError,
     setUser,
-    setBalence,
     createUser,
     signInUser,
     googleSignin,

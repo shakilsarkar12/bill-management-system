@@ -36,8 +36,8 @@ const SignUp = () => {
         updateProfile(result.user, {
           displayName: name,
           photoURL: photoURL,
-          userBalence: balence
-        })
+          userBalence: balence,
+        });
         toast.success("Registration successful!");
         navigate("/");
         setUser(result.user);
@@ -48,7 +48,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="px-4">
+    <div className="px-4 mt-40">
       <div className="max-w-sm mx-auto mt-10 sm:mt-16 bg-gray-100 p-4 sm:p-6 py-8 rounded-lg">
         <h2 className="text-xl sm:text-2xl font-bold text-center text-gray-700 mb-6">
           Create a New Account

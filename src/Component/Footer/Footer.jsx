@@ -22,17 +22,29 @@ const Footer = () => {
           <h4 className="text-xl font-semibold mb-4">Navigation</h4>
           <ul className="space-y-2 text-base md:text-lg text-gray-300">
             <li>
-              <NavLink onClick={()=>window.scrollTo(0, 0)} to="/" className="hover:underline">
+              <NavLink
+                onClick={() => window.scrollTo(0, 0)}
+                to="/"
+                className="hover:underline"
+              >
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink onClick={()=>window.scrollTo(0, 0)} to="/bill" className="hover:underline">
+              <NavLink
+                onClick={() => window.scrollTo(0, 0)}
+                to="/bills"
+                className="hover:underline"
+              >
                 Bill
               </NavLink>
             </li>
             <li>
-              <NavLink onClick={()=>window.scrollTo(0, 0)} to="/profile" className="hover:underline">
+              <NavLink
+                onClick={() => window.scrollTo(0, 0)}
+                to="/profile"
+                className="hover:underline"
+              >
                 Profile
               </NavLink>
             </li>

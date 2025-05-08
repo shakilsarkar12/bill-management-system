@@ -2,27 +2,21 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import { BillsContext } from "../../Context/BillsContext/BillsContext";
 
-
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
-    const { bills } = useContext(BillsContext)
+  const { bills, paid, unPaid, totalpaid, recentBills } =
+    useContext(BillsContext);
 
-    const unpaid = bills?.filter((bill) => bill.status === false);
-    const paid = bills?.filter((bill) => bill.status === true);
-    const totalPaidAmount = paid.reduce((sum, bill) => sum + bill.amount, 0);
+  const [stats, setstats] = useState([]);
 
-  const stats = [
-    { label: "Total Bills", value: bills.length },
-    { label: "Unpaid Bills", value: unpaid.length },
-    { label: "Paid Bills", value: paid.length },
-    { label: "Total Paid", value: totalPaidAmount },
-  ];
-
-  const [recentBills, setBillResent] = useState([]);
   useEffect(() => {
-    const billResent = bills?.filter((bill) => bill.recent == true);
-    setBillResent(billResent);
-  }, [bills]);
+    setstats([
+      { label: "Total Bills", value: bills.length },
+      { label: "Unpaid Bills", value: unPaid.length },
+      { label: "Paid Bills", value: paid.length },
+      { label: "Total Paid", value: totalpaid },
+    ]);
+  }, [bills, unPaid, paid, totalpaid]);
 
   return (
     <div className="p-6 space-y-8 max-w-7xl mx-auto">
@@ -34,13 +28,13 @@ const Dashboard = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        {stats?.map((stat, idx) => (
+        {stats?.map((stat, index) => (
           <div
-            key={idx}
+            key={index}
             className="bg-white p-4 rounded-xl  border-2 border-gray-100 text-center"
           >
             <p className="font-medium text-gray-500">{stat.label}</p>
-            <p className="text-xl font-bold text-blue-600">{stat.value}</p>
+            <p className="text-xl font-bold text-accent">{stat.value}</p>
           </div>
         ))}
       </div>

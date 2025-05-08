@@ -9,11 +9,11 @@ import BillsPrrovider from "./Context/BillsProvider/BillsPrrovider.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-      <BillsPrrovider>
-    <AuthProvider>
-      <RouterProvider router={router} />
-      <ToastContainer autoClose={2000} />
-    </AuthProvider>
-      </BillsPrrovider>
+    <BillsPrrovider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+        <ToastContainer autoClose={2000} />
+      </AuthProvider>
+    </BillsPrrovider>
   </StrictMode>
 );

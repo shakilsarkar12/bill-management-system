@@ -1,12 +1,8 @@
-import { FaFacebook } from 'react-icons/fa'
-import './App.css'
+import { FaFacebook } from "react-icons/fa";
+import "./App.css";
 
 function App() {
-
-  return (
-    <>
-    </>
-  )
+  return <></>;
 }
 
-export default App
+export default App;

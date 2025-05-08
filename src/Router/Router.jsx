@@ -10,6 +10,8 @@ import BillDetails from "../Pages/BillDetails/BillDetails";
 import Categories from "../Component/Categories/Categories";
 import Dashboard from "../Component/Dashboard/Dashboard";
 import MyProfile from "../Component/MyProfile/MyProfile";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Loader from "../Component/Loader/Loader";
 
 export const router = createBrowserRouter([
   {
@@ -22,10 +24,14 @@ export const router = createBrowserRouter([
       },
       {
         path: "/bills",
-        Component: Bill,
+        element: (
+          <PrivateRoute>
+            <Bill />
+          </PrivateRoute>
+        ),
         loader: () => fetch("/bills.json"),
         id: "bills",
-        hydrateFallbackElement: <div>Loading.....</div>,
+        hydrateFallbackElement: <Loader />,
         children: [
           {
             path: "/bills/:id",
@@ -37,11 +43,15 @@ export const router = createBrowserRouter([
         path: "/billdetails/:id",
         Component: BillDetails,
         loader: () => fetch("/bills.json"),
-        hydrateFallbackElement: <div>Loading.....</div>,
+        hydrateFallbackElement: <Loader />,
       },
       {
         path: "/profile",
-        Component: Profile,
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
         children: [
           {
             path: "/profile/dashboard",

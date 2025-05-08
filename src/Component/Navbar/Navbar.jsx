@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router";
 import logo from "../../assets/logo.png";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 import { toast } from "react-toastify";
+import { BillsContext } from "../../Context/BillsContext/BillsContext";
 
 const Navbar = () => {
   const links = (
@@ -19,7 +20,8 @@ const Navbar = () => {
     </>
   );
 
-  const { user, signOutUser, setUser, balence } = useContext(AuthContext);
+  const { user, signOutUser, setUser } = useContext(AuthContext);
+  const { balence } = useContext(BillsContext);
 
   const handleSignOut = () => {
     signOutUser()
