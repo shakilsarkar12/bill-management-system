@@ -4,7 +4,7 @@ import { BillsContext } from "../../Context/BillsContext/BillsContext";
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
-  const { bills, paid, unPaid, totalpaid, recentBills } =
+  const { bills, paid, unPaid, totalpaid, recentBills, statusArray } =
     useContext(BillsContext);
 
   const [stats, setstats] = useState([]);
@@ -55,36 +55,39 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {recentBills?.map((bill) => (
-                  <tr
-                    key={bill.id}
-                    className="border border-gray-200 hover:bg-gray-50"
-                  >
-                    <td className="px-4 py-3">{bill.name}</td>
-                    <td className="px-4 py-3">৳{bill.amount}</td>
-                    <td className="px-4 py-3">
-                      {new Date(bill?.["due-date"]).toLocaleString("en-GB", {
-                        day: "2-digit",
-                        month: "short",
-                        year: "numeric",
-                        hour: "numeric",
-                        minute: "2-digit",
-                        hour12: true,
-                      })}
-                    </td>
-                    <td className="px-4 py-3">
-                      <span
-                        className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          bill.status
-                            ? "bg-green-100 text-green-700"
-                            : "bg-red-100 text-red-600"
-                        }`}
-                      >
-                        {bill.status ? "Paid" : "Unpaid"}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
+                {recentBills?.map((bill) => {
+                  const billStatus = statusArray.find((item) => item.id === bill.id);
+        return (
+                  (
+                    <tr
+                      key={bill.id}
+                      className="border border-gray-200 hover:bg-gray-50"
+                    >
+                      <td className="px-4 py-3">{bill.name}</td>
+                      <td className="px-4 py-3">৳{bill.amount}</td>
+                      <td className="px-4 py-3">
+                        {new Date(bill?.["due-date"]).toLocaleString("en-GB", {
+                          day: "2-digit",
+                          month: "short",
+                          year: "numeric",
+                          hour: "numeric",
+                          minute: "2-digit",
+                          hour12: true,
+                        })}
+                      </td>
+                      <td className="px-4 py-3">
+                        <span
+                          className={`px-2 py-1 rounded-full text-xs font-medium ${billStatus.status
+                              ? "bg-green-100 text-green-700"
+                              : "bg-red-100 text-red-600"
+                            }`}
+                        >
+                          {billStatus.status ? "Paid" : "Unpaid"}
+                        </span>
+                      </td>
+                    </tr>
+                  ))
+                })}
               </tbody>
             </table>
           </div>

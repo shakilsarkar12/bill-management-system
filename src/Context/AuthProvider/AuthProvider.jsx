@@ -15,6 +15,11 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const googleProvider = new GoogleAuthProvider();
+      const [nameWord, setNameWord] = useState();
+      useEffect(() => {
+        const initial = user?.displayName?.charAt(0).toUpperCase() || "";
+        setNameWord(initial);
+      }, [user]);
 
   const signInUser = (email, password) => {
     setLoading(true);
@@ -55,6 +60,7 @@ const AuthProvider = ({ children }) => {
     user,
     error,
     loading,
+    nameWord,
     setLoading,
     setError,
     setUser,

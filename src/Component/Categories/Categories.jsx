@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams, useRouteLoaderData } from "react-router";
+import { BillsContext } from "../../Context/BillsContext/BillsContext";
 
 const Categories = () => {
   const navigate = useNavigate();
   const [categoriesBills, setCategoriesBills] = useState([]);
-  const [statusArray, setStatusArray] = useState([]);
+const {statusArray}= useContext(BillsContext)
   const data = useRouteLoaderData("bills");
   const { id } = useParams();
 
-  useEffect(() => {
-    const localStatus = JSON.parse(localStorage.getItem("status")) || [];
-    setStatusArray(localStatus);
-  }, []);
+
 
   useEffect(() => {
     if (data) {

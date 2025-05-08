@@ -10,6 +10,7 @@ const BillsPrrovider = ({ children }) => {
   const [paid, setPaid] = useState([]);
   const [unPaid, setUnPaid] = useState([]);
   const [totalpaid, setTotalPaid] = useState([]);
+  const [statusArray, setStatusArray] = useState([]);
 
   useEffect(() => {
     fetch("/bills.json")
@@ -41,6 +42,9 @@ const BillsPrrovider = ({ children }) => {
 
     const storedStatus = getStatusArray();
     setBillStatus(storedStatus);
+
+    const localStatus = JSON.parse(localStorage.getItem("status")) || [];
+    setStatusArray(localStatus);
   }, [bills]);
 
   const userBills = {
@@ -51,10 +55,12 @@ const BillsPrrovider = ({ children }) => {
     totalpaid,
     recentBills,
     billStatus,
+    statusArray,
     setBills,
     setPaid,
     setBalence,
     setBillStatus,
+    setStatusArray,
   };
   return <BillsContext value={userBills}>{children}</BillsContext>;
 };

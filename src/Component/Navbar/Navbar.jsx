@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import logo from "../../assets/logo.png";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
@@ -20,7 +20,7 @@ const Navbar = () => {
     </>
   );
 
-  const { user, signOutUser, setUser } = useContext(AuthContext);
+  const { user, signOutUser, setUser, nameWord } = useContext(AuthContext);
   const { balence } = useContext(BillsContext);
 
   const handleSignOut = () => {
@@ -81,10 +81,17 @@ const Navbar = () => {
                 className="btn btn-ghost btn-circle avatar"
               >
                 <div className="w-10 rounded-full">
-                  <img
-                    alt="Tailwind CSS Navbar component"
-                    src={user.photoURL}
-                  />
+                  {user.photoURL ? (
+                    <img
+                      src={user.photoURL}
+                      alt="Profile"
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="bg-info text-xl font-medium text-white flex items-center justify-center rounded-full h-10 w-10">
+                      {nameWord}
+                    </div>
+                  )}
                 </div>
               </div>
               <ul
