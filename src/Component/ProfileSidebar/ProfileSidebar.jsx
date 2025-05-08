@@ -17,14 +17,14 @@ const ProfileSidebar = () => {
           <span className="hidden md:inline">Dashboard</span>
         </NavLink>
         <NavLink
-          to="/profile/my-profile"
+          to="/profile/myprofile"
           className="profile flex items-center gap-3 px-4 py-2 hover:bg-gray-200 rounded-lg transition"
         >
           <FaUser className="text-xl sm:text-2xl" />
           <span className="hidden md:inline">Profile</span>
         </NavLink>
         <NavLink
-          to="/profile/payment-history"
+          to="/profile/paymenthistory"
           className="profile flex items-center gap-3 px-4 py-2 hover:bg-gray-200 rounded-lg transition"
         >
           <FaClipboardList className="text-xl sm:text-2xl" />

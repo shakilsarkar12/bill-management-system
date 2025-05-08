@@ -15,7 +15,7 @@ const SignUp = () => {
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
-    // const photoURL = form.photoURL.value;
+    const photoURL = form.photoURL.value;
     const password = form.password.value;
     const balence = 10000;
 
@@ -35,8 +35,7 @@ const SignUp = () => {
       .then((result) => {
         updateProfile(result.user, {
           displayName: name,
-          // photoURL: photoURL,
-          userBalence: balence,
+          photoURL: photoURL,
         });
         toast.success("Registration successful!");
         navigate("/");

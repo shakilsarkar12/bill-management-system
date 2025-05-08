@@ -12,6 +12,7 @@ import Dashboard from "../Component/Dashboard/Dashboard";
 import MyProfile from "../Component/MyProfile/MyProfile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Loader from "../Component/Loader/Loader";
+import Settings from "../Component/Settings/Settings";
 
 export const router = createBrowserRouter([
   {
@@ -58,11 +59,11 @@ export const router = createBrowserRouter([
             Component: Dashboard,
           },
           {
-            path: "/profile/my-profile",
+            path: "/profile/myprofile",
             Component: MyProfile,
           },
           {
-            path: "/profile/payment-history",
+            path: "/profile/paymenthistory",
             element: <div>pyament history</div>,
           },
           {
@@ -71,7 +72,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "/profile/settings",
-            element: <div>setting</div>,
+            Component: Settings,
           },
           {
             path: "/profile/help",
