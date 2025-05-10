@@ -19,12 +19,12 @@ const Dashboard = () => {
   }, [bills, unPaid, paid, totalpaid]);
 
   return (
-    <div className="p-6 space-y-8 max-w-7xl mx-auto">
+    <div className="p-4 md:p-6 space-y-8 max-w-7xl mx-auto">
       <div>
-        <h1 className="text-3xl font-semibold text-gray-800">
+        <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold md:font-semibold text-gray-800">
           Welcome, {user?.displayName}
         </h1>
-        <p className="text-gray-500">Email: {user?.email}</p>
+        <p className="text-sm sm:text-base text-gray-500">Email: {user?.email}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">

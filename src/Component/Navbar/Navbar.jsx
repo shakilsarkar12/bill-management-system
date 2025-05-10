@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import logo from "../../assets/logo.png";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
@@ -11,10 +11,13 @@ const Navbar = () => {
       <NavLink className="navlink hover:text-info duration-300" to="/">
         Home
       </NavLink>
-      <NavLink className="navlink hover:text-info duration-300" to="/bills">
+      <NavLink className="navlink hover:text-info duration-300" to="/bills/0">
         Bill
       </NavLink>
-      <NavLink className="navlink hover:text-info duration-300" to="/profile">
+      <NavLink
+        className="navlink hover:text-info duration-300"
+        to="/profile/myprofile"
+      >
         Profile
       </NavLink>
     </>

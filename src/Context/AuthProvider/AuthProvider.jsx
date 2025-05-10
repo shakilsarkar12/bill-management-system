@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -22,12 +23,12 @@ const AuthProvider = ({ children }) => {
       }, [user]);
 
   const signInUser = (email, password) => {
-    setLoading(true);
+    setLoading(false);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const createUser = (email, password) => {
-    setLoading(true);
+    setLoading(false);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
@@ -50,11 +51,14 @@ const AuthProvider = ({ children }) => {
     });
   }, []);
 
-  console.log(loading);
 
   const signOutUser = () => {
     return signOut(auth);
   };
+
+  const forgatePassword = (email) => {
+    return sendPasswordResetEmail(auth, email)
+}
 
   const userInfo = {
     user,
@@ -68,6 +72,7 @@ const AuthProvider = ({ children }) => {
     signInUser,
     googleSignin,
     signOutUser,
+    forgatePassword
   };
 
   return <AuthContext value={userInfo}>{children}</AuthContext>;

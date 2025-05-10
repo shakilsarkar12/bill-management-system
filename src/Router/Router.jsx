@@ -13,6 +13,9 @@ import MyProfile from "../Component/MyProfile/MyProfile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Loader from "../Component/Loader/Loader";
 import Settings from "../Component/Settings/Settings";
+import PaymentHistory from "../Component/PaymentHistory/PaymentHistory";
+import NotificationSection from "../Component/NotificationSection/NotificationSection";
+import HelpSection from "../Component/HelpSection/HelpSection";
 
 export const router = createBrowserRouter([
   {
@@ -64,11 +67,11 @@ export const router = createBrowserRouter([
           },
           {
             path: "/profile/paymenthistory",
-            element: <div>pyament history</div>,
+            Component: PaymentHistory,
           },
           {
             path: "/profile/notifications",
-            element: <div>notifications</div>,
+            Component: NotificationSection,
           },
           {
             path: "/profile/settings",
@@ -76,7 +79,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "/profile/help",
-            element: <div>help</div>,
+            Component: HelpSection,
           },
         ],
       },

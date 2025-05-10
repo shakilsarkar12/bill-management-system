@@ -10,19 +10,21 @@ const ProfileSidebar = () => {
     <div className="min-h-screen p-4 sm:p-6 flex flex-col justify-start sticky top-16 sm:top-20 left-0 w-full md:w-64">
       <ul className="space-y-3 sm:space-y-4 text-gray-700 font-medium">
         <NavLink
-          to="/profile/dashboard"
-          className="profile flex items-center gap-3 px-4 py-2 hover:bg-gray-200 rounded-lg transition"
-        >
-          <BiHome className="text-xl sm:text-2xl" />
-          <span className="hidden md:inline">Dashboard</span>
-        </NavLink>
-        <NavLink
           to="/profile/myprofile"
           className="profile flex items-center gap-3 px-4 py-2 hover:bg-gray-200 rounded-lg transition"
         >
           <FaUser className="text-xl sm:text-2xl" />
           <span className="hidden md:inline">Profile</span>
         </NavLink>
+
+        <NavLink
+          to="/profile/dashboard"
+          className="profile flex items-center gap-3 px-4 py-2 hover:bg-gray-200 rounded-lg transition"
+        >
+          <BiHome className="text-xl sm:text-2xl" />
+          <span className="hidden md:inline">Dashboard</span>
+        </NavLink>
+        
         <NavLink
           to="/profile/paymenthistory"
           className="profile flex items-center gap-3 px-4 py-2 hover:bg-gray-200 rounded-lg transition"

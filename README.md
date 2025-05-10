@@ -1,12 +1,40 @@
-# React + Vite
+# 📄 PayBill - Bill Management Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🔗 Live URL:
+[https://pay-bill-4686e.web.app/](https://pay-bill-4686e.web.app/)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📖 Project Purpose:
+PayBill ekta bill management system jekhane users ra tader utility bill — like electricity, gas, water, internet, tuition fee etc — easily pay korte parbe. Firebase Authentication diye user login/register korte parbe.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Key Features:
+- 🔐 Firebase Authentication (Email/Password & Google)
+- 🔒 Protected Routes  
+- 📊 Balance Management System  
+- 📋 Bill List with Card Grid View  
+- 📅 Bill Filter by Type  
+- ✅ Paid Bill Status Indication  
+- 📝 Profile Update Feature  
+- 🔄 Responsive Design  
+- ⚡ SPA Routing with React Router  
+- 🎡 SwiperJS Carousel  
+- 🌐 Hosted on Firebase  
+
+---
+
+## 🧰 NPM Packages Used:
+- `@tailwindcss/vite`
+- `firebase`
+- `react`
+- `react-dom`
+- `react-icons`
+- `react-router`
+- `react-spinners`
+- `react-toastify`
+- `swiper`
+- `tailwindcss`
+
+---

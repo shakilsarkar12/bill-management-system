@@ -10,8 +10,7 @@ import { updateProfile } from "firebase/auth";
 const MyProfile = () => {
   const navigate = useNavigate();
   const { user, nameWord } = useContext(AuthContext);
-  const { balence, unPaid, paid, setBalence, setLoading } =
-    useContext(BillsContext);
+  const { balence, unPaid, paid, setBalence } = useContext(BillsContext);
   const [editMode, setEditMode] = useState(false);
   const [addBlanceMode, setAddBlanceMode] = useState(false);
   const [creationDate, setCreationDate] = useState("");
@@ -44,7 +43,6 @@ const MyProfile = () => {
     e.preventDefault();
     const name = e.target.name.value;
     const photoUrl = e.target.photoUrl.value;
-    console.log(name, photoUrl);
 
     updateProfile(user, {
       displayName: name,
@@ -53,10 +51,9 @@ const MyProfile = () => {
       .then(() => {
         toast.success("Profile updated");
         setEditMode(false);
-        setLoading(false);
       })
       .catch((error) => {
-        toast.warn(error.message);
+        console.log(error.message);
       });
   };
 
@@ -100,9 +97,9 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="p-6 max-w-5xl mx-auto space-y-10">
+    <div className="p-4 md:p-6 max-w-7xl mx-auto space-y-10">
       {/* Profile Card */}
-      <div className="relative bg-white shadow-lg rounded-2xl p-6 flex flex-col  items-center gap-6 border border-gray-200">
+      <div className="relative bg-white shadow-lg rounded-2xl p-4 sm:p-6 flex flex-col  items-center gap-6 border border-gray-200">
         <button
           className="absolute top-4 right-4 text-gray-500 hover:text-accent"
           onClick={() => setEditMode(true)}
@@ -116,10 +113,10 @@ const MyProfile = () => {
             <img
               src={user.photoURL}
               alt="Profile"
-              className="w-28 h-28 rounded-full object-cover border-4 border-accent"
+              className="w-20 md:w-28 h-20 md:h-28 rounded-full object-cover border-4 border-accent"
             />
           ) : (
-            <div className="bg-info text-5xl font-medium text-white flex items-center justify-center rounded-full h-28 w-28">
+            <div className="bg-info text-5xl font-medium text-white flex items-center justify-center rounded-full w-20 md:w-28 h-28 w-28">
               {nameWord}
             </div>
           )}
@@ -127,7 +124,9 @@ const MyProfile = () => {
 
         <div className="text-gray-800 w-full space-y-3 text-center sm:text-left">
           <h2 className="text-xl font-semibold">Name : {user?.displayName}</h2>
-          <p className="font-medium text-gray-500">Email: {user?.email}</p>
+          <p className="text-sm sm:text-base font-medium text-gray-500">
+            Email: {user?.email}
+          </p>
           <p className="text-lg font-medium">
             Balance:
             <span className="text-accent font-semibold">৳ {balence}</span>
@@ -160,7 +159,7 @@ const MyProfile = () => {
             </p>
           </div>
 
-          <div className="flex gap-3 mt-4 justify-center sm:justify-start">
+          <div className="flex flex-col sm:flex-row gap-3 mt-4 justify-center sm:justify-start">
             <button
               onClick={() => setAddBlanceMode(true)}
               className="btn btn-outline border-accent hover:btn-accent font-medium hover:text-white btn-sm flex items-center gap-2"
@@ -178,12 +177,13 @@ const MyProfile = () => {
       </div>
 
       {editMode && (
-        <div className="bg-gray-200/30 backdrop-blur-md w-full h-screen flex items-center justify-center absolute top-0 left-0">
+        <div className="bg-gray-200/30 backdrop-blur-md w-full h-screen flex items-center justify-center absolute top-0 left-0 px-4 sm:px-0">
           <div className="bg-white shadow-md rounded-xl p-6 border border-gray-100">
             <h2 className="text-xl font-semibold mb-4">Edit Profile</h2>
             <form onSubmit={handleUpdateProfile} className="space-y-4">
               <input
                 name="name"
+                defaultValue={user.displayName}
                 className="border border-info focus:outline-info w-full px-4 py-2 rounded-sm"
                 type="text"
                 placeholder="name"
@@ -191,11 +191,12 @@ const MyProfile = () => {
               />
               <input
                 name="photoUrl"
+                defaultValue={user.photoURL}
                 className="border border-info focus:outline-info w-full px-4 py-2 rounded-sm"
                 type="url"
                 placeholder="PhotoURL"
               />
-              <div className="space-x-4">
+              <div className="space-y-4 space-x-4 sm:space-y-0">
                 <button
                   type="submit"
                   className="btn btn-accent text-white w-full sm:w-fit"
@@ -216,7 +217,7 @@ const MyProfile = () => {
       )}
 
       {addBlanceMode && (
-        <div className="bg-gray-200/30 backdrop-blur-md w-full h-screen flex items-center justify-center absolute top-0 left-0">
+        <div className="bg-gray-200/30 backdrop-blur-md w-full h-screen flex items-center justify-center absolute top-0 left-0 px-4 sm:px-0">
           <div className="bg-white shadow-md rounded-xl p-6 border border-gray-100 relative">
             <button
               type="button"

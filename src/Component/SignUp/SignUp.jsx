@@ -1,15 +1,18 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { updateProfile } from "firebase/auth";
 import ContinueGoogle from "../ContinueGoogle/ContinueGoogle";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
 
 const SignUp = () => {
+  const location = useLocation();
   const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
-  const { createUser, setUser, error, setError } = useContext(AuthContext);
-
+  const { createUser, setUser, error, setError } =
+    useContext(AuthContext);
+console.log(location);
+  
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -17,7 +20,6 @@ const SignUp = () => {
     const email = form.email.value;
     const photoURL = form.photoURL.value;
     const password = form.password.value;
-    const balence = 10000;
 
     if (!/[A-Z]/.test(password)) {
       setPasswordError("Password must have at least one Uppercase letter.");
@@ -38,7 +40,7 @@ const SignUp = () => {
           photoURL: photoURL,
         });
         toast.success("Registration successful!");
-        navigate("/");
+        navigate(`${location.state? location.state : "/"}`);
         setUser(result.user);
       })
       .catch((error) => {
@@ -91,7 +93,7 @@ const SignUp = () => {
           <div className="divider">OR</div>
           <ContinueGoogle color="info" />
           <p className="text-center mt-4 text-sm sm:text-base">
-            Already have an account?{" "}
+            Already have an account?{}
             <Link to="/auth/signin" className="text-blue-600 hover:underline">
               Signin
             </Link>
