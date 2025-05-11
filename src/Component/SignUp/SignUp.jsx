@@ -4,15 +4,16 @@ import { toast } from "react-toastify";
 import { updateProfile } from "firebase/auth";
 import ContinueGoogle from "../ContinueGoogle/ContinueGoogle";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const SignUp = () => {
   const location = useLocation();
   const [passwordError, setPasswordError] = useState("");
+  const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
-  const { createUser, setUser, error, setError } =
-    useContext(AuthContext);
-console.log(location);
-  
+  const { createUser, setUser, error, setError } = useContext(AuthContext);
+  console.log(location);
+
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -40,7 +41,7 @@ console.log(location);
           photoURL: photoURL,
         });
         toast.success("Registration successful!");
-        navigate(`${location.state? location.state : "/"}`);
+        navigate(`${location.state ? location.state : "/"}`);
         setUser(result.user);
       })
       .catch((error) => {
@@ -67,7 +68,6 @@ console.log(location);
             className="border border-info focus:outline-info w-full px-4 py-2 rounded-sm"
             type="url"
             placeholder="PhotoURL"
-            
           />
           <input
             name="email"
@@ -76,13 +76,22 @@ console.log(location);
             placeholder="Email"
             required
           />
-          <input
-            name="password"
-            className="border border-info focus:outline-info w-full px-4 py-2 rounded-sm"
-            type="password"
-            placeholder="Password"
-            required
-          />
+          <div className="relative">
+            <input
+              name="password"
+              className="border border-accent focus:outline-accent w-full px-4 py-2 rounded-sm"
+              type={showPass ? "text" : "password"}
+              placeholder="Password"
+              required
+            />
+            <button
+              type="button"
+              onClick={() => setShowPass(!showPass)}
+              className="absolute top-3 right-4"
+            >
+              {showPass ? <IoEye size={20} /> : <IoEyeOff size={20} />}
+            </button>
+          </div>
 
           {passwordError && (
             <p className="text-red-500 text-sm">{passwordError}</p>
@@ -93,7 +102,7 @@ console.log(location);
           <div className="divider">OR</div>
           <ContinueGoogle color="info" />
           <p className="text-center mt-4 text-sm sm:text-base">
-            Already have an account?{}
+            Already have an account?{" "}
             <Link to="/auth/signin" className="text-blue-600 hover:underline">
               Signin
             </Link>

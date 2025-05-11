@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { auth } from "../../Firebase/firebase.init";
-import {  updatePassword } from "firebase/auth";
+import { updatePassword } from "firebase/auth";
 import { toast } from "react-toastify";
 
 const Settings = () => {
@@ -16,7 +16,6 @@ const Settings = () => {
       updatePassword(user, newPassword)
         .then(() => {
           toast.success(" Password updated successfully!");
-          setNewPassword("");
         })
         .catch((error) => {
           setMessage(` Error: ${error.message}`);
@@ -25,7 +24,6 @@ const Settings = () => {
       setMessage(" User not logged in.");
     }
   };
-
 
   return (
     <div className="p-4 sm:p-6 max-w-6xl mx-auto space-y-10 mt-12">
@@ -58,18 +56,30 @@ const Settings = () => {
       <div className="bg-white rounded-xl p-6 border border-gray-200">
         <h2 className="text-xl font-semibold mb-4">Preferences</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <select className="border border-accent focus:outline-accent w-full px-4 py-2 rounded-sm">
-            <option>Language: English</option>
-            <option>Bangla</option>
-          </select>
-          <select className="border border-accent focus:outline-accent w-full px-4 py-2 rounded-sm">
-            <option>Currency: BDT (৳)</option>
-            <option>USD ($)</option>
-          </select>
-          <select className="border border-accent focus:outline-accent w-full px-4 py-2 rounded-sm">
-            <option>Timezone: Asia/Dhaka</option>
-            <option>GMT</option>
-          </select>
+          <label htmlFor="language">
+            <span className="text-lg font-semibold text-gray-600">
+              Language:
+            </span>
+            <select
+              name="language"
+              className="border border-accent focus:outline-accent w-full px-4 py-2 rounded-sm"
+            >
+              <option>English</option>
+              <option>Bangla</option>
+            </select>
+          </label>
+          <label htmlFor="language">
+            <span className="text-lg font-semibold text-gray-600">
+              Timezone:
+            </span>
+            <select
+              name="language"
+              className="border border-accent focus:outline-accent w-full px-4 py-2 rounded-sm"
+            >
+              <option>Asia/Dhaka</option>
+              <option>GMT</option>
+            </select>
+          </label>
         </div>
       </div>
 

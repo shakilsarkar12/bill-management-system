@@ -1,8 +1,9 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import ContinueGoogle from "../ContinueGoogle/ContinueGoogle";
 import { AuthContext } from "../../Context/AuthContext/AuthContext";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ const SignIn = () => {
   const getEmailforResetPass = useRef();
   const { signInUser, setUser, error, setError, forgatePassword } =
     useContext(AuthContext);
+  const [showPass, setShowPass] = useState(false);
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -32,12 +34,12 @@ const SignIn = () => {
     const email = getEmailforResetPass.current.value;
     forgatePassword(email)
       .then(() => {
-        toast("forgate password")
+        toast("forgate password");
       })
       .catch((error) => {
         toast.warn(error.message);
       });
-  }
+  };
   return (
     <div className="mx-4 mt-40">
       <div className="max-w-sm mx-auto mt-10 sm:mt-16 bg-gray-100 p-4 sm:p-6 py-8 rounded-lg">
@@ -53,14 +55,18 @@ const SignIn = () => {
             placeholder="Email"
             required
           />
-          <input
-            name="password"
-            className="border border-accent focus:outline-accent w-full px-4 py-2 rounded-sm"
-            type="password"
-            placeholder="Password"
-            required
-          />
-
+          <div className="relative">
+            <input
+              name="password"
+              className="border border-accent focus:outline-accent w-full px-4 py-2 rounded-sm"
+              type={ showPass? "text" : "password"}
+              placeholder="Password"
+              required
+            />
+            <button type="button" onClick={()=>setShowPass(!showPass)} className="absolute top-3 right-4">
+              {showPass ? <IoEye size={20} /> : <IoEyeOff size={20} />}
+            </button>
+          </div>
           <button
             onClick={handleForgatePassword}
             type="button"
@@ -77,7 +83,7 @@ const SignIn = () => {
           <p className="text-center text-sm sm:text-base mt-4">
             Don’t have an account?{" "}
             <Link
-              state={location.pathname}
+              state={location.state}
               to="/auth/signup"
               className="text-blue-600 hover:underline"
             >
