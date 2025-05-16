@@ -1,7 +1,7 @@
 # 📄 PayBill - Bill Management Website
 
-## 🔗 Live URL:
-[https://pay-bill-4686e.web.app/](https://pay-bill-4686e.web.app/)
+## 🔗 Live Demo:
+[Live Demo](https://pay-bill-4686e.web.app/)
 
 ---
 
