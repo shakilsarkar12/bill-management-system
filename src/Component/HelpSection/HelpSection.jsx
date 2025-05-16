@@ -21,7 +21,7 @@ const faqs = [
 
 const HelpSection = () => {
   return (
-    <div className="bg-white rounded-xl p-4 md:p-6 border border-gray-200 max-w-4xl mx-auto space-y-8 mt-24">
+    <div className="bg-white rounded-xl p-4 md:p-6 border border-gray-200 max-w-6xl xl:mx-auto space-y-8 mt-4 sm:mt-6 md:mt-12 lg:mt-20 mx-4 md:mx-8">
       <h2 className="text-2xl font-semibold flex items-center gap-2 text-primary">
         <FiHelpCircle /> Help & Support
       </h2>

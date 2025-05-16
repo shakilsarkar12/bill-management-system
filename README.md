@@ -1,4 +1,4 @@
-# 📄 PayBill - Bill Management Website
+# 📄 PayBill - Bill Management System
 
 ## 🔗 Live Demo:
 [Live Demo](https://pay-bill-4686e.web.app/)

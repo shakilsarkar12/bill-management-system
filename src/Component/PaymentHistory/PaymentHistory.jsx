@@ -21,7 +21,7 @@ const payments = [
 
 const PaymentHistory = () => {
   return (
-    <div className="bg-white shadow-md rounded-xl p-6 border border-gray-100 max-w-5xl mx-auto">
+    <div className="bg-white rounded-xl p-4 md:p-6 border border-gray-200 max-w-6xl xl:mx-auto space-y-8 mt-4 sm:mt-6 md:mt-12 lg:mt-20 mx-4 md:mx-8">
       <h2 className="text-xl font-semibold mb-4">Payment History</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full text-sm text-left">
